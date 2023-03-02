@@ -1,0 +1,13 @@
+name: CI
+on: ["pull_request", "merge_group", "push"]
+
+jobs:
+  test:
+    name: Rust
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: cargo run
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
